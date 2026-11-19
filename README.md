@@ -1,5 +1,11 @@
 # linkprofile
 
+[![npm version](https://img.shields.io/npm/v/linkprofile.svg?style=flat-square)](https://www.npmjs.com/package/linkprofile)
+[![npm downloads](https://img.shields.io/npm/dt/linkprofile.svg?style=flat-square)](https://www.npmjs.com/package/linkprofile)
+[![GitHub stars](https://img.shields.io/github/stars/olakunlevpn/linkprofile.svg?style=flat-square)](https://github.com/olakunlevpn/linkprofile/stargazers)
+[![CI](https://img.shields.io/github/actions/workflow/status/olakunlevpn/linkprofile/ci.yml?branch=main&label=CI&style=flat-square)](https://github.com/olakunlevpn/linkprofile/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/github/license/olakunlevpn/linkprofile.svg?style=flat-square)](LICENSE)
+
 Turn a profile file into a personal link-in-bio page on GitHub Pages.
 
 ## Introduction

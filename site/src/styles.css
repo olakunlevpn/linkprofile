@@ -1,0 +1,79 @@
+@import "tailwindcss";
+@source "./**/*";
+@source "../docs/**/*";
+@source "../lib/**/*";
+
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/space-grotesk-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/space-grotesk-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/space-grotesk-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/space-grotesk-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/jetbrains-mono-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/jetbrains-mono-latin-500-normal.woff2") format("woff2"); }
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-paper: #F5F6F3;
+  --color-ink: #15171A;
+  --color-muted: #5B6168;
+  --color-line: #DFE3DE;
+  --color-mint: #3BD3A2;
+  --color-mint-soft: #E3F7EF;
+  --color-mint-deep: #0E7C5A;
+  --color-panel: #1C1F24;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-paper text-ink font-sans antialiased; }
+  :focus-visible { outline: 2px solid var(--color-ink); outline-offset: 3px; border-radius: 6px; }
+}
+
+/* Homepage: phone previews */
+.phone {
+  width: 172px; height: 356px; border-radius: 30px; padding: 7px;
+  background: #15171A; box-shadow: 0 1px 0 #fff inset, 0 24px 40px -24px rgba(21,23,26,.45);
+  transition: transform .35s cubic-bezier(.2,.8,.2,1);
+}
+.phone iframe {
+  width: 390px; height: 800px; border: 0; border-radius: 24px;
+  transform: scale(.4); transform-origin: 0 0; pointer-events: none; background: #fff;
+}
+.screen { width: 158px; height: 342px; border-radius: 24px; overflow: hidden; }
+.fan > a:nth-child(1) .phone { transform: rotate(-6deg) translateY(18px); }
+.fan > a:nth-child(2) .phone { transform: rotate(-3deg) translateY(5px); }
+.fan > a:nth-child(3) .phone { transform: translateY(0); }
+.fan > a:nth-child(4) .phone { transform: rotate(3deg) translateY(5px); }
+.fan > a:nth-child(5) .phone { transform: rotate(6deg) translateY(18px); }
+.fan > a:hover .phone, .fan > a:focus-visible .phone { transform: translateY(-14px) rotate(0); }
+@media (max-width: 900px) {
+  .fan > a .phone { transform: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .phone { transition: none; }
+}
+details summary::-webkit-details-marker { display: none; }
+details[open] .plus { transform: rotate(45deg); }
+
+/* Docs: prose. In the components layer so utility classes in the layouts still win. */
+@layer components {
+  .prose-doc h2 { @apply mt-14 scroll-mt-24 text-[26px] leading-tight font-semibold tracking-[-0.02em]; }
+  .prose-doc h3 { @apply mt-8 scroll-mt-24 text-[19px] font-semibold; }
+  .prose-doc :is(h2, h3):target { @apply -ml-3 rounded-md border-l-2 border-mint-deep bg-mint-soft pl-[10px]; }
+  .prose-doc p, .prose-doc li { @apply text-[16.5px] leading-[1.7] text-[#2E3236]; }
+  .prose-doc p { @apply mt-4; }
+  .prose-doc a { @apply font-medium text-mint-deep underline decoration-mint decoration-2 underline-offset-[3px] hover:text-ink; }
+  .prose-doc :not(pre) > code { @apply rounded-md bg-white px-1.5 py-0.5 font-mono text-[14px] text-ink ring-1 ring-line; }
+  .prose-doc pre { @apply mt-5 overflow-x-auto rounded-xl bg-panel px-5 py-4 font-mono text-[14px] leading-[1.75] text-[#D6DAD3]; }
+  .prose-doc kbd { @apply rounded border border-line border-b-2 bg-white px-1.5 py-0.5 font-sans text-[14px] font-medium; }
+  .steps { counter-reset: step; }
+  .steps > li { counter-increment: step; @apply relative mt-9 pl-14; }
+  .steps > li::before { content: counter(step); @apply absolute top-0 left-0 flex size-9 items-center justify-center rounded-full bg-mint text-[16px] font-semibold text-ink; }
+  .steps > li:not(:last-child)::after { content: ""; @apply absolute top-11 bottom-[-28px] left-[17px] w-px bg-line; }
+  .steps > li > h3 { @apply mt-1; }
+  .prose-doc table { @apply mt-5 block w-full overflow-x-auto text-[15px]; }
+  .prose-doc th { @apply border-b border-line px-3 py-2 text-left font-semibold; }
+  .prose-doc td { @apply border-b border-line px-3 py-2 align-top; }
+  .prose-doc > h1 + p { @apply mt-5 text-[19px] leading-[1.6] text-muted; }
+}

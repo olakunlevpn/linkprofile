@@ -1,0 +1,76 @@
+{
+  # Which look to use. See `npx linkprofile themes`.
+  theme: classic
+  # Long form (quote the values when they share a line):
+  # theme: { name: "classic", options: { accent: "#2dd4bf" } }
+
+  # Public URL of the site, used for link previews. Left out here so the
+  # build's --url is used, as it is in the GitHub Action.
+  # url: https://username.github.io/links
+
+  name: vyshnav
+  # Path in the repo, or an https URL.
+  avatar: images/avatar.png
+  bio: A UI/UX designer who loves Coding, Illustrating & creating 3D stuff
+
+  # Hjson rule: an unquoted value runs to the END OF THE LINE.
+  # So put each field on its own line, or quote values on one line.
+  socials: [
+    {
+      type: x
+      url: https://x.com/vyshnav
+    }
+    {
+      type: figma
+      url: https://www.figma.com/@vyshnav
+    }
+    {
+      type: dribbble
+      url: https://dribbble.com/vyshnav
+    }
+    { type: "github", url: "https://github.com/vyshnav" }   # quoted one-liner also works
+    {
+      type: linkedin
+      url: https://www.linkedin.com/in/vyshnav
+    }
+  ]
+
+  # Optional label above the links.
+  links_title: Featured Links
+
+  links: [
+    {
+      title: My Website
+      url: https://vyshnav.example.com/
+      icon: globe
+    }
+    {
+      title: Visual Ideas
+      url: https://vyshnav.example.com/ideas
+      icon: pencil
+    }
+    {
+      title: Newsletter
+      url: https://vyshnav.example.com/newsletter
+      icon: mail
+      color: "#34d399"                # must be quoted: # starts a comment
+    }
+    {
+      title: Shop
+      url: https://shop.example.com/vyshnav
+      image: images/shop.png
+    }
+    {
+      title: What I'm Doing Now
+      url: https://vyshnav.example.com/now
+      icon: clock
+    }
+  ]
+
+  # Optional page metadata; sensible defaults derived from name/bio/avatar.
+  meta: {
+    title: vyshnav — links
+    description: Website, newsletter, shop and what vyshnav is doing now
+    favicon: images/favicon.png
+  }
+}

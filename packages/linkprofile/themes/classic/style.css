@@ -1,0 +1,537 @@
+/* linkprofile "classic" theme. Space Grotesk is (c) The Space Grotesk Project Authors, SIL OFL 1.1 (assets/fonts/OFL.txt). */
+
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/space-grotesk-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/space-grotesk-latin-500-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/space-grotesk-latin-600-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/space-grotesk-latin-700-normal.woff2") format("woff2");
+}
+
+/*
+ * Colours. Light is the base; dark applies when:
+ *   - the theme option "mode" is "dark" (data-mode="dark"),
+ *   - "mode" is "auto" (the default) and the system prefers dark, unless the toggle
+ *     chose light (class "light"), or
+ *   - the toggle chose dark (class "dark").
+ * The toggle is a progressive enhancement: without JavaScript the page follows the system.
+ */
+:root {
+  --page: #ffffff;
+  --ink: #171717;
+  --name: #171717;
+  --bio: #262626;
+  --muted: #737373;
+  --avatar-line: rgb(0 0 0 / 0.8);
+  --social: #171717;
+  --social-hover: #000000;
+  --social-hover-bg: #f5f5f5;
+  --pill: #ffffff;
+  --pill-hover: #fafafa;
+  --pill-line: #171717;
+  --pill-ink: #171717;
+  --pill-shadow: #111111;
+  --icon-ink: #111111;
+  --horizon: #111111;
+  --toggle-line: #d4d4d4;
+  --toggle-bg: rgb(255 255 255 / 0.9);
+  --toggle-ink: #262626;
+  --selection: #99f6e4;
+  --font: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  color-scheme: light;
+}
+
+:root[data-mode="auto"] {
+  color-scheme: light dark;
+}
+
+/* The dark palette: keep in sync with the prefers-color-scheme block below. */
+:root[data-mode="dark"],
+:root.dark {
+  --page: #121214;
+  --ink: #f5f5f5;
+  --name: #fafafa;
+  --bio: #d4d4d4;
+  --muted: #a3a3a3;
+  --avatar-line: rgb(255 255 255 / 0.8);
+  --social: #f5f5f5;
+  --social-hover: #ffffff;
+  --social-hover-bg: #262626;
+  --pill: #18181b;
+  --pill-hover: #222226;
+  --pill-line: rgb(115 115 115 / 0.8);
+  --pill-ink: #f5f5f5;
+  --pill-shadow: #f4f4f5;
+  --icon-ink: #f4f4f5;
+  --horizon: #f4f4f5;
+  --toggle-line: #404040;
+  --toggle-bg: rgb(23 23 23 / 0.9);
+  --toggle-ink: #e5e5e5;
+  --selection: #134e4a;
+  color-scheme: dark;
+}
+
+:root.light {
+  color-scheme: light;
+}
+
+/* Same dark palette as :root.dark above: keep the two in sync. */
+@media (prefers-color-scheme: dark) {
+  :root[data-mode="auto"]:not(.light) {
+    --page: #121214;
+    --ink: #f5f5f5;
+    --name: #fafafa;
+    --bio: #d4d4d4;
+    --muted: #a3a3a3;
+    --avatar-line: rgb(255 255 255 / 0.8);
+    --social: #f5f5f5;
+    --social-hover: #ffffff;
+    --social-hover-bg: #262626;
+    --pill: #18181b;
+    --pill-hover: #222226;
+    --pill-line: rgb(115 115 115 / 0.8);
+    --pill-ink: #f5f5f5;
+    --pill-shadow: #f4f4f5;
+    --icon-ink: #f4f4f5;
+    --horizon: #f4f4f5;
+    --toggle-line: #404040;
+    --toggle-bg: rgb(23 23 23 / 0.9);
+    --toggle-ink: #e5e5e5;
+    --selection: #134e4a;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  font-family: var(--font);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+  background: var(--page);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+::selection {
+  background: var(--selection);
+}
+
+h1,
+h2,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+svg,
+img {
+  display: block;
+}
+
+/* Light / dark toggle: hidden until the inline script shows it. */
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 50;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--toggle-line);
+  border-radius: 9999px;
+  background: var(--toggle-bg);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  color: var(--toggle-ink);
+  font: inherit;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle[hidden] {
+  display: none;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-sun,
+:root.dark .icon-moon {
+  display: none;
+}
+
+:root.dark .icon-sun {
+  display: block;
+}
+
+/* Profile */
+
+.page {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.avatar {
+  width: 76px;
+  height: 76px;
+  margin-bottom: 14px;
+  border: 1px solid var(--avatar-line);
+  border-radius: 9999px;
+  object-fit: cover;
+  background: #fef3c7;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--name);
+  overflow-wrap: anywhere;
+}
+
+.dot {
+  display: inline-block;
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin-left: 2px;
+  border-radius: 9999px;
+  background: var(--accent, #3bd3a2);
+}
+
+.bio {
+  max-width: 380px;
+  margin-top: 8px;
+  font-size: 15.5px;
+  line-height: 22px;
+  color: var(--bio);
+  overflow-wrap: anywhere;
+}
+
+/* Social icons */
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 16px 0 28px;
+}
+
+.socials a {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: var(--social);
+  transition: transform 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+
+.socials a:hover {
+  transform: translateY(-2px);
+  color: var(--social-hover);
+  background-color: var(--social-hover-bg);
+}
+
+.socials svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* A page without socials still keeps the gap above the links. */
+.name + .links-title,
+.name + .links,
+.bio + .links-title,
+.bio + .links {
+  margin-top: 28px;
+}
+
+/* Links */
+
+.links-title {
+  margin-bottom: 14px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 52px;
+  padding: 8px 12px;
+  border: 1px solid var(--pill-line);
+  border-radius: 9999px;
+  background-color: var(--pill);
+  text-align: left;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3.5px 0 0 var(--pill-shadow);
+  background-color: var(--pill-hover);
+}
+
+.link:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.link-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+/*
+ * Link icons: a circle in two flat tones (top: --tone-a, bottom: --tone-b), an ink line
+ * at the split and an ink glyph. Icons in icons/ draw all of that themselves (.is-art,
+ * classes icon-stroke / icon-fill take the ink); any other lucide icon (.is-glyph) or an
+ * initial letter (.is-initial) sits on a plain frame of the same kind.
+ */
+.link-icon {
+  --tone-a: #4fd4ad;
+  --tone-b: #5ebcfc;
+  position: relative;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  color: var(--icon-ink);
+  transition: color 0.25s ease;
+}
+
+/* Tone pairs for links without a colour, cycled by position. */
+.palette-1 { --tone-a: #fde16d; --tone-b: #fbab63; }
+.palette-2 { --tone-a: #9ddf55; --tone-b: #3fd6af; }
+.palette-3 { --tone-a: #cea6f6; --tone-b: #ef6b9e; }
+.palette-4 { --tone-a: #5ebcfc; --tone-b: #fde16d; }
+
+/* A link's own colour fills the top; the bottom is a lighter tint of it. */
+.custom { --tone-b: var(--tone-a); }
+
+@supports (color: color-mix(in srgb, red, blue)) {
+  .custom { --tone-b: color-mix(in srgb, var(--tone-a) 55%, #fff); }
+}
+
+/* On a dark link colour (the build works it out) the glyph and line turn light. */
+.ink-light { --icon-ink: #ffffff; }
+
+.link-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.link-icon .tone-a { fill: var(--tone-a); }
+.link-icon .tone-b { fill: var(--tone-b); }
+.link-icon .cut { stroke: var(--tone-a); }
+
+.link-icon .icon-stroke {
+  stroke: var(--icon-ink);
+  transition: stroke 0.25s ease;
+}
+
+.link-icon .icon-fill {
+  fill: var(--icon-ink);
+  transition: fill 0.25s ease;
+}
+
+.link-icon .horizon {
+  stroke: var(--horizon);
+  transition: stroke 0.25s ease;
+}
+
+.link-icon .link-frame {
+  position: absolute;
+  inset: 0;
+}
+
+/* lucide icons are thin outlines; draw them heavier to sit with the filled artwork */
+.is-glyph svg:not(.link-frame) {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.6;
+}
+
+.is-image {
+  overflow: hidden;
+  background: var(--tone-a);
+}
+
+.is-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.link-initial {
+  position: relative;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.link-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--pill-ink);
+}
+
+.link-arrow {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  color: var(--pill-ink);
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link:hover .link-arrow {
+  transform: translateX(4px);
+}
+
+/* Focus */
+
+a:focus,
+button:focus {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+@media (min-width: 640px) {
+  body {
+    padding: 48px;
+  }
+
+  .theme-toggle {
+    top: 32px;
+    right: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .theme-toggle,
+  .socials a,
+  .link,
+  .link-arrow,
+  .link-icon,
+  .link-icon .icon-stroke,
+  .link-icon .icon-fill,
+  .link-icon .horizon {
+    transition: none;
+  }
+
+  .theme-toggle:hover,
+  .theme-toggle:active,
+  .socials a:hover,
+  .link:hover,
+  .link:hover .link-arrow {
+    transform: none;
+  }
+}

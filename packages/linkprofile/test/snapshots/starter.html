@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en" data-mode="auto">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Name - links</title>
+<meta name="description" content="Everything I make, in one place.">
+<meta name="generator" content="linkprofile VERSION">
+<link rel="canonical" href="https://example.github.io/links/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Your Name - links">
+<meta property="og:description" content="Everything I make, in one place.">
+<meta property="og:url" content="https://example.github.io/links/">
+<meta property="og:image" content="https://example.github.io/links/images/avatar.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="images/avatar.png">
+<link rel="stylesheet" href="theme/style.css">
+
+<script>
+(function () {
+  var root = document.documentElement, saved = null, system = window.matchMedia && matchMedia('(prefers-color-scheme: dark)');
+  try { saved = localStorage.getItem('linkprofile-theme'); } catch (e) {}
+  function apply(dark) {
+    root.classList.toggle('dark', dark);
+    root.classList.toggle('light', !dark);
+    var button = document.getElementById('theme-toggle');
+    if (button) button.setAttribute('aria-pressed', String(dark));
+  }
+  apply(saved === 'dark' || (saved !== 'light' && !!system && system.matches));
+  if (system && system.addEventListener) system.addEventListener('change', function (e) { if (!saved) apply(e.matches); });
+  document.addEventListener('DOMContentLoaded', function () {
+    var button = document.getElementById('theme-toggle');
+    if (!button) return;
+    button.hidden = false;
+    apply(root.classList.contains('dark'));
+    button.addEventListener('click', function () {
+      saved = root.classList.contains('dark') ? 'light' : 'dark';
+      apply(saved === 'dark');
+      try { localStorage.setItem('linkprofile-theme', saved); } catch (e) {}
+    });
+  });
+})();
+</script>
+</head>
+<body style="--accent: #3bd3a2">
+<button id="theme-toggle" class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" title="Toggle light / dark mode" hidden>
+  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" focusable="false"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+</button>
+<main class="page">
+  <img class="avatar" src="images/avatar.png" alt="" width="76" height="76">
+  <h1 class="name">Your Name<span class="dot" aria-hidden="true"></span></h1>
+  <p class="bio">Designer and maker. I sketch, write code and share the small things I build.</p>
+  <ul class="socials">
+    <li><a href="https://example.com/your-x-profile" aria-label="X" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" fill="currentColor"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></a></li>
+    <li><a href="https://example.com/your-figma-profile" aria-label="Figma" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" fill="currentColor"><path d="M11.25 0H7.75A3.5 3.5 0 0 0 7.75 7H11.25ZM12.75 0H16.25A3.5 3.5 0 0 1 16.25 7H12.75ZM11.25 8.5H7.75A3.5 3.5 0 0 0 7.75 15.5H11.25ZM16.25 8.5a3.5 3.5 0 1 1 0 7a3.5 3.5 0 1 1 0-7ZM11.25 17V20.5A3.5 3.5 0 1 1 7.75 17Z"/></svg></a></li>
+    <li><a href="https://example.com/your-dribbble-profile" aria-label="Dribbble" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" fill="currentColor"><path fill-rule="evenodd" d="M12 0a12 12 0 1 1 0 24a12 12 0 1 1 0-24ZM8.44 0.54A116.82 116.82 0 0 1 18.04 22.37A12 12 0 0 1 16.64 23.07A115.27 115.27 0 0 0 6.98 1.1A12 12 0 0 1 8.44 0.54ZM0.02 11.37A31.11 31.11 0 0 0 21.02 4.09A12 12 0 0 0 19.92 2.99A29.56 29.56 0 0 1 0.2 9.82A12 12 0 0 0 0.02 11.37ZM2.99 19.92A21.1 21.1 0 0 1 23.99 12.43A12 12 0 0 1 23.84 13.98A19.55 19.55 0 0 0 4.09 21.03A12 12 0 0 1 2.99 19.92ZM10.71 8.2A115.27 115.27 0 0 1 11.37 9.61A31.11 31.11 0 0 0 12.83 9.05A116.82 116.82 0 0 0 12.16 7.65A29.56 29.56 0 0 1 10.71 8.2ZM13.49 14.45A115.27 115.27 0 0 0 12.89 13.01A21.1 21.1 0 0 1 14.39 12.58A116.82 116.82 0 0 1 14.99 14.03A19.55 19.55 0 0 0 13.49 14.45Z"/></svg></a></li>
+    <li><a href="https://example.com/your-github-profile" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+    <li><a href="https://example.com/your-linkedin-profile" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="1 1 22 22" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" fill="currentColor"><path fill-rule="evenodd" d="M5 2h14a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3zM6 9.5v8h2.6v-8zM7.3 5.8a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM10.4 9.5v8H13v-4.2c0-1.1.5-1.8 1.4-1.8s1.3.6 1.3 1.8v4.2h2.6v-4.8c0-2.2-1.2-3.4-2.9-3.4-1.1 0-1.9.5-2.4 1.2V9.5z"/></svg></a></li>
+  </ul>
+  <h2 class="links-title">Featured Links</h2>
+  <ul class="links">
+    <li class="link-item">
+      <a class="link" href="https://example.com" rel="noopener">
+        <span class="link-main">
+          <span class="link-icon is-art palette-0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+  <path class="horizon" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="butt" d="M-1.6 12H25.6"/>
+  <circle class="tone-b" fill="#5ebcfc" cx="12" cy="12" r="12"/>
+  <path class="tone-a" fill="#4fd4ad" d="M0 12A12 12 0 0 1 24 12Z"/>
+  <path class="icon-stroke" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="butt" d="M0 12H24"/>
+  <path class="icon-fill" fill-rule="evenodd" d="M12 5.1a6.9 6.9 0 1 1 0 13.8a6.9 6.9 0 1 1 0-13.8Zm0 1.8a5.1 5.1 0 1 0 0 10.2a5.1 5.1 0 1 0 0-10.2Z"/>
+  <ellipse class="icon-stroke" fill="none" stroke="currentColor" stroke-width="1.5" cx="12" cy="12" rx="2.4" ry="5.9"/>
+  <path class="icon-stroke" fill="none" stroke="currentColor" stroke-width="1.3" d="M7.58 8.9H16.42M7.58 15.1H16.42"/>
+</svg></span>
+          <span class="link-title">My Website</span>
+        </span>
+        <svg class="link-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg>
+      </a>
+    </li>
+    <li class="link-item">
+      <a class="link" href="https://example.com/blog" rel="noopener">
+        <span class="link-main">
+          <span class="link-icon is-art palette-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+  <path class="horizon" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="butt" d="M-1.05 15.6H25.05"/>
+  <circle class="tone-b" fill="#5ebcfc" cx="12" cy="12" r="12"/>
+  <path class="tone-a" fill="#4fd4ad" d="M0.55 15.6A12 12 0 1 1 23.45 15.6Z"/>
+  <path class="icon-stroke" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="butt" d="M0.55 15.6H23.45"/>
+  <g transform="translate(7.6 15.6) rotate(-45)">
+    <path class="icon-fill" d="M0 0 3.4-2.1H11.2V2.1H3.4Z"/>
+    <path class="tone-a" fill="#4fd4ad" d="M1.55-.96 3.4-2.1V2.1L1.55.96Z"/>
+    <rect class="icon-fill" x="11.9" y="-2.1" width="1.9" height="4.2" rx=".6"/>
+    <path class="cut" fill="none" stroke="#4fd4ad" stroke-width="1.1" d="M4.4 0H10.2"/>
+  </g>
+</svg></span>
+          <span class="link-title">Blog</span>
+        </span>
+        <svg class="link-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg>
+      </a>
+    </li>
+    <li class="link-item">
+      <a class="link" href="https://example.com/newsletter" rel="noopener">
+        <span class="link-main">
+          <span class="link-icon is-art palette-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+  <path class="horizon" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="butt" d="M-0.68 16.6H24.68"/>
+  <circle class="tone-b" fill="#5ebcfc" cx="12" cy="12" r="12"/>
+  <path class="tone-a" fill="#4fd4ad" d="M0.92 16.6A12 12 0 1 1 23.08 16.6Z"/>
+  <path class="icon-stroke" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="butt" d="M0.92 16.6H23.08"/>
+  <rect class="icon-fill" x="5.3" y="7.3" width="13.4" height="9.3" rx="1.3"/>
+  <path class="cut" fill="none" stroke="#4fd4ad" stroke-width="1.1" d="M6.9 9.1 12 12.9l5.1-3.8"/>
+</svg></span>
+          <span class="link-title">Newsletter</span>
+        </span>
+        <svg class="link-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg>
+      </a>
+    </li>
+    <li class="link-item">
+      <a class="link" href="https://example.com/shop" rel="noopener">
+        <span class="link-main">
+          <span class="link-icon is-art palette-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+  <path class="horizon" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="butt" d="M-0.32 17.4H24.32"/>
+  <circle class="tone-b" fill="#5ebcfc" cx="12" cy="12" r="12"/>
+  <path class="tone-a" fill="#4fd4ad" d="M1.28 17.4A12 12 0 1 1 22.72 17.4Z"/>
+  <path class="icon-stroke" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="butt" d="M1.28 17.4H22.72"/>
+  <path class="icon-stroke" fill="none" stroke="currentColor" stroke-width="1.5" d="M5.2 6.7h2.3l1.9 7.1h7.4"/>
+  <path class="icon-fill" d="M7.9 8.3h10.9l-1.5 4.6H9.1Z"/>
+  <path class="cut" fill="none" stroke="#4fd4ad" stroke-width="1.1" d="M9 10.6h8.4"/>
+  <circle class="icon-fill" cx="10.2" cy="15.85" r="1.55"/>
+  <circle class="icon-fill" cx="15.8" cy="15.85" r="1.55"/>
+</svg></span>
+          <span class="link-title">Shop</span>
+        </span>
+        <svg class="link-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg>
+      </a>
+    </li>
+    <li class="link-item">
+      <a class="link" href="https://example.com/now" rel="noopener">
+        <span class="link-main">
+          <span class="link-icon is-art palette-4"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+  <path class="horizon" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="butt" d="M0.01 18H23.99"/>
+  <circle class="tone-b" fill="#5ebcfc" cx="12" cy="12" r="12"/>
+  <path class="tone-a" fill="#4fd4ad" d="M1.61 18A12 12 0 1 1 22.39 18Z"/>
+  <path class="icon-stroke" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="butt" d="M1.61 18H22.39"/>
+  <path class="icon-fill" d="M5.3 9.1a3 3 0 0 1 3.9-3.9ZM18.7 9.1a3 3 0 0 0-3.9-3.9Z"/>
+  <path class="icon-stroke" fill="none" stroke="currentColor" stroke-width="1.5" d="M9 15.7 7.9 17.4M15 15.7l1.1 1.7"/>
+  <circle class="icon-fill" cx="12" cy="11.6" r="5.4"/>
+  <path class="cut" fill="none" stroke="#4fd4ad" stroke-width="1.1" d="M12 8.4v3.2l2.2 1.3"/>
+</svg></span>
+          <span class="link-title">What I&#39;m Doing Now</span>
+        </span>
+        <svg class="link-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg>
+      </a>
+    </li>
+  </ul>
+</main>
+</body>
+</html>

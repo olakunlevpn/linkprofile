@@ -1,0 +1,8 @@
+{
+  "name": "cover",
+  "description": "Card under an accent banner, with the avatar overlapping its edge",
+  "version": "1.0.0",
+  "options": { "accent": "#4f46e5", "mode": "auto" },
+  "choices": { "mode": ["auto", "light", "dark"] },
+  "types": { "accent": "color" }
+}

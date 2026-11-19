@@ -1,0 +1,8 @@
+{
+  "name": "classic",
+  "description": "Clean page with pill-shaped links and a light/dark toggle (default)",
+  "version": "1.0.0",
+  "options": { "accent": "#3bd3a2", "mode": "auto", "toggle": true },
+  "choices": { "mode": ["auto", "light", "dark"], "toggle": [true, false] },
+  "types": { "accent": "color" }
+}

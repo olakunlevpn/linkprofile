@@ -1,0 +1,24 @@
+{
+  "name": "linkprofile",
+  "version": "0.1.0",
+  "description": "Turn a profile.hjson file into a static link-in-bio page for GitHub Pages",
+  "keywords": ["link-in-bio", "linktree", "static-site-generator", "github-pages", "hjson", "cli"],
+  "type": "module",
+  "bin": { "linkprofile": "bin/linkprofile.js" },
+  "engines": { "node": ">=22" },
+  "files": ["bin", "src", "themes"],
+  "license": "MIT",
+  "repository": "github:olakunlevpn/linkprofile",
+  "scripts": { "test": "node --test \"test/*.test.js\"" },
+  "dependencies": {
+    "hjson": "^3.2.2",
+    "liquidjs": "^10.30.1",
+    "simple-icons": "~16.38.0",
+    "lucide-static": "~1.76.0"
+  },
+  "devDependencies": {
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/lexend": "^5.3.0",
+    "@fontsource/space-grotesk": "^5.3.0"
+  }
+}

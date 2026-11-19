@@ -1,0 +1,90 @@
+{%- assign show_toggle = false -%}
+{%- if theme.options.mode == 'auto' and theme.options.toggle == true -%}{%- assign show_toggle = true -%}{%- endif -%}
+<!doctype html>
+<html lang="en" data-mode="{{ theme.options.mode }}">
+<head>
+{% include 'linkprofile-meta' %}
+{%- if show_toggle %}
+<script>
+(function () {
+  var root = document.documentElement, saved = null, system = window.matchMedia && matchMedia('(prefers-color-scheme: dark)');
+  try { saved = localStorage.getItem('linkprofile-theme'); } catch (e) {}
+  function apply(dark) {
+    root.classList.toggle('dark', dark);
+    root.classList.toggle('light', !dark);
+    var button = document.getElementById('theme-toggle');
+    if (button) button.setAttribute('aria-pressed', String(dark));
+  }
+  apply(saved === 'dark' || (saved !== 'light' && !!system && system.matches));
+  if (system && system.addEventListener) system.addEventListener('change', function (e) { if (!saved) apply(e.matches); });
+  document.addEventListener('DOMContentLoaded', function () {
+    var button = document.getElementById('theme-toggle');
+    if (!button) return;
+    button.hidden = false;
+    apply(root.classList.contains('dark'));
+    button.addEventListener('click', function () {
+      saved = root.classList.contains('dark') ? 'light' : 'dark';
+      apply(saved === 'dark');
+      try { localStorage.setItem('linkprofile-theme', saved); } catch (e) {}
+    });
+  });
+})();
+</script>
+{%- endif %}
+</head>
+<body style="--accent: {{ theme.options.accent }}">
+{%- if show_toggle %}
+<button id="theme-toggle" class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" title="Toggle light / dark mode" hidden>
+  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" focusable="false"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+</button>
+{%- endif %}
+<main class="page">
+{%- if profile.avatar_url %}
+  <img class="avatar" src="{{ profile.avatar_url }}" alt="" width="76" height="76">
+{%- endif %}
+  <h1 class="name">{{ profile.name }}<span class="dot" aria-hidden="true"></span></h1>
+{%- if profile.bio %}
+  <p class="bio">{{ profile.bio }}</p>
+{%- endif %}
+{%- if profile.socials.size > 0 %}
+  <ul class="socials">
+{%- for s in profile.socials %}
+    <li><a href="{{ s.url }}" aria-label="{{ s.label }}"{% if s.url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ s.svg | raw }}</a></li>
+{%- endfor %}
+  </ul>
+{%- endif %}
+{%- if profile.links.size > 0 %}
+{%- if profile.links_title %}
+  <h2 class="links-title">{{ profile.links_title }}</h2>
+{%- endif %}
+  <ul class="links">
+{%- for l in profile.links %}
+    <li class="link-item">
+      <a class="link" href="{{ l.url }}"{% if l.external %} rel="noopener"{% endif %}>
+        <span class="link-main">
+          <span class="link-icon {% if l.image_url %}is-image{% elsif l.theme_icon_svg %}is-art{% elsif l.icon_svg %}is-glyph{% else %}is-initial{% endif %}{% if l.color %} custom{% if l.color_is_dark %} ink-light{% endif %}{% else %} palette-{{ forloop.index0 | modulo: 5 }}{% endif %}"{% if l.color %} style="--tone-a: {{ l.color }}"{% endif %}>
+            {%- if l.image_url -%}
+            <img src="{{ l.image_url }}" alt="" width="28" height="28">
+            {%- elsif l.theme_icon_svg -%}
+            {{ l.theme_icon_svg | raw }}
+            {%- else -%}
+            <svg class="link-frame" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="horizon" fill="none" stroke="currentColor" stroke-width="1.1" d="M-1.6 12h27.2"/><circle class="tone-b" cx="12" cy="12" r="12"/><path class="tone-a" d="M0 12a12 12 0 0 1 24 0z"/><path class="icon-stroke" fill="none" stroke="currentColor" stroke-width="1.1" d="M0 12h24"/></svg>
+            {%- if l.icon_svg -%}
+            {{ l.icon_svg | raw }}
+            {%- else -%}
+            <span class="link-initial" aria-hidden="true">{{ l.title | slice: 0 | upcase }}</span>
+            {%- endif -%}
+            {%- endif -%}
+          </span>
+          <span class="link-title">{{ l.title }}</span>
+        </span>
+        <svg class="link-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg>
+      </a>
+    </li>
+{%- endfor %}
+  </ul>
+{%- endif %}
+</main>
+</body>
+</html>

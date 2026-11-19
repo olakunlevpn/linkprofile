@@ -1,0 +1,14 @@
+{%- assign menu = false -%}
+{%- if variant == 'menu' %}{% assign menu = true %}{% endif -%}
+{%- for group in groups %}
+<p class="mb-2 text-[13px] font-semibold text-muted">{{ group.title }}</p>
+<ul class="{% unless forloop.last %}{% if menu %}mb-6 {% else %}mb-8 {% endif %}{% endunless %}space-y-0.5">
+{%- for p in group.pages %}
+{%- if p.current %}
+  <li><a class="block rounded-lg {% if menu %}bg-paper{% else %}bg-white{% endif %} px-3 py-1.5 font-medium text-ink ring-1 ring-line" href="{{ p.href }}" aria-current="page">{{ p.title }}</a></li>
+{%- else %}
+  <li><a class="block rounded-lg px-3 py-1.5 text-muted {% if menu %}hover:bg-paper{% else %}hover:bg-white{% endif %} hover:text-ink" href="{{ p.href }}">{{ p.title }}</a></li>
+{%- endif %}
+{%- endfor %}
+</ul>
+{%- endfor %}

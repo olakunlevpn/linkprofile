@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>linkprofile: your link-in-bio page, free on GitHub Pages</title>
+  <meta name="description" content="Pick a look, edit one file, push. A link-in-bio page you own, hosted free on GitHub Pages.">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/js/home.js" defer></script>
+</head>
+<body class="bg-paper text-ink">
+
+  <header class="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
+    <a href="./" class="flex items-center gap-1.5 text-[19px] font-semibold tracking-tight">
+      linkprofile<span class="inline-block size-2 rounded-full bg-mint"></span>
+    </a>
+    <nav class="flex items-center gap-0 min-[360px]:gap-1 text-[15px] text-muted">
+      <a href="#themes" class="rounded-full px-2 py-1.5 min-[360px]:px-3 hover:text-ink">Themes</a>
+      <a href="docs/" class="rounded-full px-2 py-1.5 min-[360px]:px-3 hover:text-ink">Docs</a>
+      <a href="https://github.com/olakunlevpn/linkprofile" class="rounded-full px-2 py-1.5 min-[360px]:px-3 hover:text-ink">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="mx-auto max-w-6xl px-6 pt-10 text-center sm:pt-16">
+      <h1 data-hero="title" class="mx-auto max-w-3xl text-[44px] leading-[1.02] font-semibold tracking-[-0.035em] text-balance sm:text-[68px]">
+        Your link-in-bio page, free on GitHub Pages.
+      </h1>
+      <p data-hero="sub" class="mx-auto mt-6 max-w-xl text-[18px] leading-[1.55] text-muted sm:text-[20px]">
+        Pick a look. Edit one file. Push. No account, no tracking, no monthly fee.
+      </p>
+      <div data-hero="actions" class="mt-9 flex flex-wrap items-center justify-center gap-3">
+        <a href="https://github.com/olakunlevpn/linkprofile-starter/generate" class="rounded-full bg-ink px-6 py-3.5 text-[16px] font-medium text-white hover:bg-black">Use the template</a>
+        <a href="docs/" class="rounded-full border border-ink/80 px-6 py-3.5 text-[16px] font-medium hover:bg-white">Read the docs</a>
+      </div>
+
+      <div id="themes" role="group" aria-label="Theme demos" class="fan -mx-2 scroll-px-2 px-2 sm:mx-0 sm:px-0 mt-16 flex snap-x snap-mandatory flex-nowrap items-start justify-start gap-x-5 overflow-x-auto pb-6 pt-4 sm:mt-20 sm:snap-none sm:flex-wrap sm:justify-center sm:gap-y-10 sm:overflow-visible sm:pt-0">
+        <a href="demos/classic/" class="group shrink-0 snap-start" aria-label="Open the classic theme demo">
+          <div class="phone"><div class="screen"><iframe src="demos/classic/" title="classic theme" loading="lazy" tabindex="-1"></iframe></div></div>
+          <p class="relative z-10 mt-10 text-[15px] font-medium">classic <span class="font-normal text-muted">default</span></p>
+        </a>
+        <a href="demos/bento/" class="group shrink-0 snap-start" aria-label="Open the bento theme demo">
+          <div class="phone"><div class="screen"><iframe src="demos/bento/" title="bento theme" loading="lazy" tabindex="-1"></iframe></div></div>
+          <p class="relative z-10 mt-10 text-[15px] font-medium">bento</p>
+        </a>
+        <a href="demos/cover/" class="group shrink-0 snap-start" aria-label="Open the cover theme demo">
+          <div class="phone"><div class="screen"><iframe src="demos/cover/" title="cover theme" loading="lazy" tabindex="-1"></iframe></div></div>
+          <p class="relative z-10 mt-10 text-[15px] font-medium">cover</p>
+        </a>
+        <a href="demos/editorial/" class="group shrink-0 snap-start" aria-label="Open the editorial theme demo">
+          <div class="phone"><div class="screen"><iframe src="demos/editorial/" title="editorial theme" loading="lazy" tabindex="-1"></iframe></div></div>
+          <p class="relative z-10 mt-10 text-[15px] font-medium">editorial</p>
+        </a>
+        <a href="demos/crimson/" class="group shrink-0 snap-start" aria-label="Open the crimson theme demo">
+          <div class="phone"><div class="screen"><iframe src="demos/crimson/" title="crimson theme" loading="lazy" tabindex="-1"></iframe></div></div>
+          <p class="relative z-10 mt-10 text-[15px] font-medium">crimson</p>
+        </a>
+      </div>
+      <p data-hero="note" class="mt-6 text-[14px] text-muted">Every theme works in light and dark, and takes your own accent colour.</p>
+    </section>
+    <!-- How it works -->
+    <section class="mx-auto mt-28 max-w-6xl px-6 sm:mt-36">
+      <div class="grid gap-12 border-t border-line pt-14 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
+        <div>
+          <h2 class="text-[34px] leading-[1.08] font-semibold tracking-[-0.03em] sm:text-[42px]">Live in about five minutes.</h2>
+          <ol class="mt-10 space-y-8">
+            <li class="flex gap-5">
+              <span class="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-mint text-[15px] font-semibold text-ink">1</span>
+              <div>
+                <h3 class="text-[19px] font-semibold">Use the template</h3>
+                <p class="mt-1.5 max-w-md text-[16px] leading-[1.6] text-muted">One click on GitHub gives you your own copy, with the publishing already set up.</p>
+              </div>
+            </li>
+            <li class="flex gap-5">
+              <span class="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-mint text-[15px] font-semibold text-ink">2</span>
+              <div>
+                <h3 class="text-[19px] font-semibold">Edit profile.hjson</h3>
+                <p class="mt-1.5 max-w-md text-[16px] leading-[1.6] text-muted">Your name, picture, links and theme live in one file. You can edit it right in your browser on GitHub.</p>
+              </div>
+            </li>
+            <li class="flex gap-5">
+              <span class="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-mint text-[15px] font-semibold text-ink">3</span>
+              <div>
+                <h3 class="text-[19px] font-semibold">Commit your change</h3>
+                <p class="mt-1.5 max-w-md text-[16px] leading-[1.6] text-muted">GitHub builds and publishes your page. Every later edit goes live the same way.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <figure class="overflow-hidden rounded-2xl bg-panel text-[#D6DAD3] shadow-[0_30px_60px_-30px_rgba(21,23,26,.5)]">
+          <figcaption class="flex items-center gap-2 border-b border-white/10 px-5 py-3.5 font-mono text-[13px] text-white/60">
+            <span class="size-2.5 rounded-full bg-white/15"></span><span class="size-2.5 rounded-full bg-white/15"></span><span class="size-2.5 rounded-full bg-white/15"></span>
+            <span class="ml-3">profile.hjson</span>
+          </figcaption>
+<pre class="overflow-x-auto px-5 py-5 font-mono text-[14px] leading-[1.75]"><code><span class="text-white/40"># Pick a look: classic, bento, cover, editorial or crimson</span>
+<span class="text-mint">theme</span>: crimson
+
+<span class="text-mint">name</span>: Your Name
+<span class="text-mint">avatar</span>: images/avatar.png
+<span class="text-mint">bio</span>: Designer and maker. I share the small things I build.
+
+<span class="text-mint">socials</span>: [
+  {
+    <span class="text-mint">type</span>: github
+    <span class="text-mint">url</span>: https://github.com/you
+  }
+]
+
+<span class="text-mint">links</span>: [
+  {
+    <span class="text-mint">title</span>: My Website
+    <span class="text-mint">url</span>: https://example.com
+    <span class="text-mint">icon</span>: globe
+  }
+]</code></pre>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Why -->
+    <section class="mx-auto mt-28 max-w-6xl px-6 sm:mt-36">
+      <div class="border-t border-line pt-14">
+        <h2 class="max-w-2xl text-[34px] leading-[1.08] font-semibold tracking-[-0.03em] sm:text-[42px]">A page that stays yours.</h2>
+        <dl class="mt-12 grid gap-x-12 gap-y-10 sm:grid-cols-3">
+          <div>
+            <dt class="text-[19px] font-semibold">You own it</dt>
+            <dd class="mt-2 text-[16px] leading-[1.6] text-muted">It lives in your GitHub repository at your own address. There's no service to sign up for, and nothing to cancel.</dd>
+          </div>
+          <div>
+            <dt class="text-[19px] font-semibold">It costs nothing</dt>
+            <dd class="mt-2 text-[16px] leading-[1.6] text-muted">GitHub Pages hosts it for free. Add as many links as you like.</dd>
+          </div>
+          <div>
+            <dt class="text-[19px] font-semibold">Nobody watches your visitors</dt>
+            <dd class="mt-2 text-[16px] leading-[1.6] text-muted">No trackers, no cookies, and nothing loads from other sites. Pages are plain HTML, so they open fast and link previews show your name and picture.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mx-auto mt-28 max-w-6xl px-6 sm:mt-36">
+      <div class="grid gap-10 border-t border-line pt-14 lg:grid-cols-[1fr_1.6fr]">
+        <h2 class="text-[34px] leading-[1.08] font-semibold tracking-[-0.03em] sm:text-[42px]">Questions</h2>
+        <div class="divide-y divide-line border-y border-line">
+          <details class="group py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[18px] font-medium">Do I need to know how to code?<span class="plus text-[24px] leading-none text-muted transition-transform">+</span></summary>
+            <p class="mt-3 max-w-xl text-[16px] leading-[1.6] text-muted">No. You edit one text file on github.com and press Commit. The docs walk you through each step.</p>
+          </details>
+          <details class="group py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[18px] font-medium">Can I use my own domain?<span class="plus text-[24px] leading-none text-muted transition-transform">+</span></summary>
+            <p class="mt-3 max-w-xl text-[16px] leading-[1.6] text-muted">Yes. Add your domain in your repository's Pages settings and point your DNS at GitHub. The <a class="text-ink underline underline-offset-2" href="docs/custom-domain/">docs</a> show how.</p>
+          </details>
+          <details class="group py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[18px] font-medium">Can I switch themes later?<span class="plus text-[24px] leading-none text-muted transition-transform">+</span></summary>
+            <p class="mt-3 max-w-xl text-[16px] leading-[1.6] text-muted">Any time. Change the theme line in profile.hjson and commit. Your links stay exactly as they are.</p>
+          </details>
+          <details class="group py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-[18px] font-medium">What does it cost?<span class="plus text-[24px] leading-none text-muted transition-transform">+</span></summary>
+            <p class="mt-3 max-w-xl text-[16px] leading-[1.6] text-muted">Nothing. linkprofile is open source under the MIT licence, and GitHub Pages hosting is free for public repositories.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing -->
+    <section class="mx-auto mt-28 max-w-6xl px-6 sm:mt-36">
+      <div class="flex flex-col items-start justify-between gap-8 rounded-3xl bg-ink px-8 py-14 text-white sm:flex-row sm:items-center sm:px-14">
+        <h2 class="max-w-md text-[32px] leading-[1.1] font-semibold tracking-[-0.03em] sm:text-[40px]">Make your page in five minutes.</h2>
+        <a href="https://github.com/olakunlevpn/linkprofile-starter/generate" class="shrink-0 rounded-full bg-mint px-6 py-3.5 text-[16px] font-semibold text-ink hover:bg-white">Use the template</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mx-auto mt-20 flex max-w-6xl flex-col gap-4 px-6 pb-12 text-[14px] text-muted sm:flex-row sm:items-center sm:justify-between">
+    <p>linkprofile is open source under the MIT licence.</p>
+    <nav class="flex gap-5">
+      <a href="docs/" class="hover:text-ink">Docs</a>
+      <a href="https://github.com/olakunlevpn/linkprofile" class="hover:text-ink">GitHub</a>
+      <a href="https://www.npmjs.com/package/linkprofile" class="hover:text-ink">npm</a>
+    </nav>
+  </footer>
+
+</body>
+</html>

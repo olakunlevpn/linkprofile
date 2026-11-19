@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" data-mode="{{ theme.options.mode }}">
+<head>
+{% include 'linkprofile-meta' %}
+</head>
+<body style="--accent: {{ theme.options.accent }}">
+<main class="cover-card">
+  <div class="cover-banner" aria-hidden="true"></div>
+  <div class="cover-body">
+    {%- if profile.avatar_url %}
+    <img class="cover-avatar" src="{{ profile.avatar_url }}" alt="" width="86" height="86">
+    {%- endif %}
+    <h1 class="cover-name">{{ profile.name }}</h1>
+    {%- if profile.bio %}
+    <p class="cover-bio">{{ profile.bio }}</p>
+    {%- endif %}
+    {%- if profile.socials.size > 0 %}
+    <ul class="cover-socials">
+      {%- for s in profile.socials %}
+      <li><a class="cover-social-btn" href="{{ s.url }}" aria-label="{{ s.label }}"{% if s.url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ s.svg | raw }}</a></li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+    {%- if profile.links.size > 0 %}
+    {%- if profile.links_title %}
+    <h2 class="cover-divider"><span class="cover-divider-text">{{ profile.links_title }}</span></h2>
+    {%- endif %}
+    <ul class="cover-links">
+      {%- for l in profile.links %}
+      <li>
+        <a class="cover-link" href="{{ l.url }}"{% if l.external %} rel="noopener"{% endif %}>
+          <span class="cover-icon-box{% if l.image_url %} is-image{% elsif l.color %} is-colored{% if l.color_is_dark %} ink-light{% endif %}{% endif %}"{% if l.color %} style="--link-color: {{ l.color }}"{% endif %}>
+            {%- if l.image_url -%}
+            <img src="{{ l.image_url }}" alt="" width="36" height="36">
+            {%- elsif l.icon_svg -%}
+            {{ l.icon_svg | raw }}
+            {%- else -%}
+            <span class="cover-initial" aria-hidden="true">{{ l.title | slice: 0 | upcase }}</span>
+            {%- endif -%}
+          </span>
+          <span class="cover-link-title">{{ l.title }}</span>
+          <svg class="cover-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </div>
+</main>
+</body>
+</html>

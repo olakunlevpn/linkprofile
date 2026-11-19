@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke-linecap="round" stroke-linejoin="round">
+  <path class="horizon" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="butt" d="M-0.21 17.6H24.21"/>
+  <circle class="tone-b" fill="#5ebcfc" cx="12" cy="12" r="12"/>
+  <path class="tone-a" fill="#4fd4ad" d="M1.39 17.6A12 12 0 1 1 22.61 17.6Z"/>
+  <path class="icon-stroke" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="butt" d="M1.39 17.6H22.61"/>
+  <ellipse class="icon-fill" cx="8.4" cy="15.7" rx="2.4" ry="1.85" transform="rotate(-18 8.4 15.7)"/>
+  <ellipse class="icon-fill" cx="15.6" cy="14.3" rx="2.4" ry="1.85" transform="rotate(-18 15.6 14.3)"/>
+  <path class="icon-stroke" fill="none" stroke="currentColor" stroke-width="1.6" d="M10.4 15.2V7.2M17.6 13.8V5.8"/>
+  <path class="icon-fill" d="M9.6 6.4 18.4 4.6v3L9.6 9.4Z"/>
+</svg>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} — linkprofile docs</title>
+  <meta name="description" content="{{ description }}">
+  <link rel="stylesheet" href="{{ stylesheet }}">
+</head>
+<body>
+
+  <header class="sticky top-0 z-20 border-b border-line bg-paper/90 backdrop-blur">
+    <div class="mx-auto flex max-w-[1400px] items-center gap-6 px-6 py-4">
+      <a href="{{ home }}" class="flex items-center gap-1.5 text-[19px] font-semibold tracking-tight">
+        linkprofile<span class="inline-block size-2 rounded-full bg-mint"></span>
+      </a>
+      <a href="{{ docsHref }}" class="hidden text-[15px] text-muted hover:text-ink sm:inline">Docs</a>
+      <nav class="ml-auto flex items-center gap-0 min-[360px]:gap-1 text-[15px] text-muted">
+        <a href="{{ themesHref }}" class="rounded-full px-2 py-1.5 min-[360px]:px-3 hover:text-ink">Themes</a>
+        <a href="https://github.com/olakunlevpn/linkprofile" class="rounded-full px-2 py-1.5 min-[360px]:px-3 hover:text-ink">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mx-auto grid max-w-[1400px] gap-10 px-6 lg:grid-cols-[250px_minmax(0,1fr)] xl:grid-cols-[250px_minmax(0,1fr)_220px]">
+
+    <aside class="hidden lg:block">
+      <nav class="sticky top-[73px] max-h-[calc(100vh-73px)] overflow-y-auto py-10 pr-2 text-[15px]" aria-label="Documentation">
+{%- render 'nav', groups: groups, variant: 'sidebar' %}
+      </nav>
+    </aside>
+
+    <main class="min-w-0 py-10 lg:py-14">
+      <details class="mb-8 rounded-xl border border-line bg-white lg:hidden">
+        <summary class="cursor-pointer list-none px-4 py-3 text-[15px] font-medium">Menu</summary>
+        <nav class="border-t border-line px-4 py-4 text-[15px]" aria-label="Documentation menu">
+{%- render 'nav', groups: groups, variant: 'menu' %}
+{%- if toc.size > 0 %}
+          <p class="mb-2 mt-6 border-t border-line pt-4 text-[13px] font-semibold text-muted xl:hidden">On this page</p>
+          <ul class="space-y-0.5 xl:hidden">
+{%- for item in toc %}
+            <li><a class="block rounded-lg py-1.5 {% if item.level == 3 %}pl-6{% else %}pl-3{% endif %} pr-3 text-muted hover:bg-paper hover:text-ink" href="#{{ item.id }}">{{ item.text }}</a></li>
+{%- endfor %}
+          </ul>
+{%- endif %}
+        </nav>
+      </details>
+
+      <article class="prose-doc max-w-[70ch]">
+        <p class="!mt-0 text-[15px] font-medium text-mint-deep">{{ group }}</p>
+        <h1 class="mt-2 text-[40px] leading-[1.05] font-semibold tracking-[-0.03em] sm:text-[48px]">{{ title }}</h1>
+{{ article | raw }}
+        <nav class="mt-16 flex justify-between gap-4 border-t border-line pt-6 text-[15px]" aria-label="Pagination">
+{%- if prev %}
+          <a href="{{ prev.href }}" class="!no-underline !font-normal !text-muted hover:!text-ink">Previous<span class="block text-[17px] font-semibold text-ink">{{ prev.title }}</span></a>
+{%- else %}
+          <span></span>
+{%- endif %}
+{%- if next %}
+          <a href="{{ next.href }}" class="!no-underline !font-normal text-right !text-muted hover:!text-ink">Next<span class="block text-[17px] font-semibold text-ink">{{ next.title }}</span></a>
+{%- endif %}
+        </nav>
+        <p class="!mt-8 !text-[14px] !text-muted">Something unclear? <a href="https://github.com/olakunlevpn/linkprofile/issues">Open an issue</a> or <a href="https://github.com/olakunlevpn/linkprofile/edit/main/site/docs/{{ slug }}.md">edit this page on GitHub</a>.</p>
+      </article>
+    </main>
+
+    <aside class="hidden xl:block">
+{%- if toc.size > 0 %}
+      <nav class="sticky top-[73px] py-14 text-[14px]" aria-label="On this page">
+        <p class="mb-3 font-semibold">On this page</p>
+        <ul class="space-y-2 border-l border-line">
+{%- for item in toc %}
+          <li><a href="#{{ item.id }}" class="-ml-px block border-l-2 border-transparent {% if item.level == 3 %}pl-7{% else %}pl-4{% endif %} text-muted hover:text-ink">{{ item.text }}</a></li>
+{%- endfor %}
+        </ul>
+      </nav>
+{%- endif %}
+    </aside>
+  </div>
+
+  <footer class="mt-10 border-t border-line">
+    <div class="mx-auto flex max-w-[1400px] flex-col gap-4 px-6 py-8 text-[14px] text-muted sm:flex-row sm:justify-between">
+      <p>linkprofile is open source under the MIT licence.</p>
+      <nav class="flex gap-5"><a href="{{ home }}" class="hover:text-ink">Home</a><a href="https://github.com/olakunlevpn/linkprofile" class="hover:text-ink">GitHub</a><a href="https://www.npmjs.com/package/linkprofile" class="hover:text-ink">npm</a></nav>
+    </div>
+  </footer>
+</body>
+</html>

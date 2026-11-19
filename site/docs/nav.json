@@ -1,0 +1,6 @@
+{ "groups": [
+  { "title": "Start here", "pages": [["what-is-linkprofile","What linkprofile is"],["getting-started","Getting started"],["editing-your-page","Editing your page"]] },
+  { "title": "Your page", "pages": [["name-picture-bio","Name, picture and bio"],["links-and-icons","Links and icons"],["social-profiles","Social profiles"],["themes","Themes, colours and dark mode"]] },
+  { "title": "Guides", "pages": [["custom-domain","Use your own domain"],["preview-locally","Preview on your computer"],["when-your-page-doesnt-update","When your page doesn't update"],["writing-hjson","Writing Hjson without mistakes"]] },
+  { "title": "Reference", "pages": [["profile-reference","Every profile.hjson field"],["theme-options","Theme options"],["icon-names","Icon names"],["command-line","Command line"]] }
+]}

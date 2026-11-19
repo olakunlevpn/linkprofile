@@ -1,0 +1,8 @@
+{
+  "name": "crimson",
+  "description": "Dark obsidian page with scarlet accents, a grid backdrop and tactile link cards (dark by default)",
+  "version": "1.0.0",
+  "options": { "accent": "#fe0809", "mode": "dark" },
+  "choices": { "mode": ["dark", "light", "auto"] },
+  "types": { "accent": "color" }
+}

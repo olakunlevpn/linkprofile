@@ -1,0 +1,5 @@
+{
+  "private": true,
+  "workspaces": ["packages/*", "site"],
+  "scripts": { "test": "npm test -w linkprofile && npm test -w linkprofile-site" }
+}

@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [22, 24]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm test
+      - name: Build the starter
+        run: node packages/linkprofile/bin/linkprofile.js build --config starter/profile.hjson --out "$RUNNER_TEMP/site"
+      - name: Build the site
+        run: npm run build -w linkprofile-site
+      - name: Check the npm tarball contents
+        run: |
+          npm pack --dry-run -w linkprofile --json > "$RUNNER_TEMP/pack.json"
+          node -e "const f=JSON.parse(require('fs').readFileSync(process.argv[1]))[0].files.map(x=>x.path);const ok=/^(bin|src|themes)\\//;const extra=['package.json','README.md','LICENSE'];const bad=f.filter(p=>!ok.test(p)&&!extra.includes(p));if(bad.length){console.error('Unexpected files in tarball:',bad);process.exit(1)}" "$RUNNER_TEMP/pack.json"

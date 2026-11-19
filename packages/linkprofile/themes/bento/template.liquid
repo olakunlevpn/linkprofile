@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" data-mode="{{ theme.options.mode }}">
+<head>
+{% include 'linkprofile-meta' %}
+</head>
+<body style="--accent: {{ theme.options.accent }}">
+<main class="bento-container">
+  <header class="bento-hero">
+    <div class="bento-hero-top">
+      {%- if profile.avatar_url %}
+      <img class="bento-avatar" src="{{ profile.avatar_url }}" alt="" width="76" height="76">
+      {%- endif %}
+      <div class="bento-hero-text">
+        <h1 class="bento-name">{{ profile.name }}<span class="bento-accent-dot" aria-hidden="true"></span></h1>
+        {%- if profile.bio %}
+        <p class="bento-bio">{{ profile.bio }}</p>
+        {%- endif %}
+      </div>
+    </div>
+    {%- if profile.socials.size > 0 %}
+    <ul class="bento-socials">
+      {%- for s in profile.socials %}
+      <li><a class="bento-social-link" href="{{ s.url }}" aria-label="{{ s.label }}"{% if s.url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ s.svg | raw }}</a></li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </header>
+  {%- if profile.links.size > 0 %}
+  {%- if profile.links_title %}
+  <div class="bento-section-header">
+    <h2 class="bento-section-title">{{ profile.links_title }}</h2>
+    <div class="bento-section-line" aria-hidden="true"></div>
+  </div>
+  {%- endif %}
+  <ul class="bento-grid">
+    {%- for l in profile.links %}
+    <li class="bento-cell{% if forloop.first %} bento-cell--featured{% endif %}">
+      <a class="bento-card" href="{{ l.url }}"{% if l.external %} rel="noopener"{% endif %}>
+        <span class="bento-card-header">
+          <span class="bento-icon-badge{% if l.image_url %} is-image{% elsif l.color %} is-colored{% if l.color_is_dark %} ink-light{% endif %}{% endif %}"{% if l.color %} style="--link-color: {{ l.color }}"{% endif %}>
+            {%- if l.image_url -%}
+            <img src="{{ l.image_url }}" alt="" width="36" height="36">
+            {%- elsif l.icon_svg -%}
+            {{ l.icon_svg | raw }}
+            {%- else -%}
+            <span class="bento-initial" aria-hidden="true">{{ l.title | slice: 0 | upcase }}</span>
+            {%- endif -%}
+          </span>
+          <svg class="bento-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </span>
+        <span class="bento-card-title">{{ l.title }}</span>
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+</main>
+</body>
+</html>

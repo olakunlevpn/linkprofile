@@ -1,0 +1,8 @@
+{
+  "name": "editorial",
+  "description": "Bold headline on an accent gradient with white link cards (dark by default)",
+  "version": "1.0.0",
+  "options": { "accent": "#4f46e5", "mode": "dark" },
+  "choices": { "mode": ["dark", "light", "auto"] },
+  "types": { "accent": "color" }
+}

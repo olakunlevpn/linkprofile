@@ -1,0 +1,8 @@
+{
+  "name": "bento",
+  "description": "Frosted tiles in a two-column grid, first link full width (dark by default)",
+  "version": "1.0.0",
+  "options": { "accent": "#8b5cf6", "mode": "dark" },
+  "choices": { "mode": ["dark", "light", "auto"] },
+  "types": { "accent": "color" }
+}

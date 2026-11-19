@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+{% include 'linkprofile-meta' %}
+</head>
+<body data-accent="{{ theme.options.accent }}" data-shape="{{ theme.options.shape }}">
+<h1>{{ profile.name }}</h1>
+{% if profile.avatar_url %}<img class="avatar" src="{{ profile.avatar_url }}" alt="">{% endif %}
+{% if profile.bio %}<p class="bio">{{ profile.bio }}</p>{% endif %}
+{% if profile.socials.size > 0 %}
+<ul class="socials">
+{% for s in profile.socials %}<li><a href="{{ s.url }}" aria-label="{{ s.label }}" data-type="{{ s.type }}">{{ s.svg | raw }}</a></li>
+{% endfor %}</ul>
+{% endif %}
+{% if profile.links.size > 0 %}
+{% if profile.links_title %}<h2>{{ profile.links_title }}</h2>{% endif %}
+<ul class="links">
+{% for l in profile.links %}<li><a href="{{ l.url }}"{% if l.external %} rel="noopener" target="_blank"{% endif %}{% if l.color %} data-color="{{ l.color }}"{% endif %}>{% if l.icon_svg %}{{ l.icon_svg | raw }}{% endif %}{% if l.image_url %}<img src="{{ l.image_url }}" alt="">{% endif %}<span>{{ l.title }}</span></a></li>
+{% endfor %}</ul>
+{% endif %}
+</body>
+</html>

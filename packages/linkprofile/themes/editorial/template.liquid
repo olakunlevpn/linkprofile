@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" data-mode="{{ theme.options.mode }}">
+<head>
+{% include 'linkprofile-meta' %}
+</head>
+<body style="--accent: {{ theme.options.accent }}">
+<main class="ed-stage">
+  <header class="ed-hero">
+    {%- if profile.avatar_url %}
+    <img class="ed-avatar" src="{{ profile.avatar_url }}" alt="" width="86" height="86">
+    {%- endif %}
+    <h1 class="ed-title">{{ profile.name }}</h1>
+    {%- if profile.bio %}
+    <p class="ed-bio">{{ profile.bio }}</p>
+    {%- endif %}
+    {%- if profile.socials.size > 0 %}
+    <ul class="ed-socials">
+      {%- for s in profile.socials %}
+      <li><a class="ed-social-btn" href="{{ s.url }}" aria-label="{{ s.label }}"{% if s.url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ s.svg | raw }}</a></li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </header>
+  {%- if profile.links.size > 0 %}
+  {%- if profile.links_title %}
+  <div class="ed-section-header">
+    <h2 class="ed-section-pill">{{ profile.links_title }}</h2>
+    <div class="ed-section-rule" aria-hidden="true"></div>
+  </div>
+  {%- endif %}
+  <ul class="ed-links">
+    {%- for l in profile.links %}
+    <li>
+      <a class="ed-link-card" href="{{ l.url }}"{% if l.external %} rel="noopener"{% endif %}>
+        <span class="ed-icon-tile{% if l.image_url %} is-image{% elsif l.color %} is-colored{% if l.color_is_dark %} ink-light{% endif %}{% endif %}"{% if l.color %} style="--link-color: {{ l.color }}"{% endif %}>
+          {%- if l.image_url -%}
+          <img src="{{ l.image_url }}" alt="" width="44" height="44">
+          {%- elsif l.icon_svg -%}
+          {{ l.icon_svg | raw }}
+          {%- else -%}
+          <span class="ed-initial" aria-hidden="true">{{ l.title | slice: 0 | upcase }}</span>
+          {%- endif -%}
+        </span>
+        <span class="ed-link-text">
+          <span class="ed-link-title">{{ l.title }}</span>
+          {%- if l.external %}
+          {%- assign parts = l.url | split: "/" %}
+          <span class="ed-link-url">{{ parts[2] | split: "?" | first | split: "#" | first | split: "@" | last }}</span>
+          {%- else %}
+          {%- assign scheme = l.url | split: ":" | first | downcase %}
+          {%- if scheme == 'mailto' or scheme == 'tel' %}
+          {%- assign start = scheme.size | plus: 1 %}
+          <span class="ed-link-url">{{ l.url | slice: start, 2000 | split: "?" | first }}</span>
+          {%- endif %}
+          {%- endif %}
+        </span>
+        <span class="ed-arrow-box" aria-hidden="true">
+          <svg class="ed-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+</main>
+</body>
+</html>

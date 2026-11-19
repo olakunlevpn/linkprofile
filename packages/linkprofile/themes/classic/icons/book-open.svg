@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke-linecap="round" stroke-linejoin="round">
+  <path class="horizon" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="butt" d="M-0.32 17.4H24.32"/>
+  <circle class="tone-b" fill="#5ebcfc" cx="12" cy="12" r="12"/>
+  <path class="tone-a" fill="#4fd4ad" d="M1.28 17.4A12 12 0 1 1 22.72 17.4Z"/>
+  <path class="icon-stroke" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="butt" d="M1.28 17.4H22.72"/>
+  <path class="icon-fill" d="M11.3 8.4C9.6 7.2 7.4 6.7 4.6 6.8v9.2c2.6-.1 4.9.4 6.7 1.4Z"/>
+  <path class="icon-fill" d="M12.7 8.4c1.7-1.2 3.9-1.7 6.7-1.6v9.2c-2.6-.1-4.9.4-6.7 1.4Z"/>
+  <path class="cut" fill="none" stroke="#4fd4ad" stroke-width="1.1" d="M6.6 9.6c1.2 0 2.3.2 3.2.6M6.6 12.2c1.2 0 2.3.2 3.2.6M14.2 10.2c.9-.4 2-.6 3.2-.6M14.2 12.8c.9-.4 2-.6 3.2-.6"/>
+</svg>

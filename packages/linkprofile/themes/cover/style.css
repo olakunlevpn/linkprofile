@@ -1,0 +1,365 @@
+/* linkprofile "cover" theme: a card under an accent banner, with the avatar overlapping its edge. */
+
+/*
+ * Colours. Light is the base; dark applies when the theme option "mode" is "dark", or
+ * "auto" (the default) and the system prefers dark. The palette sits on body, where the
+ * accent is set, so tints can be mixed from it. --accent-ink (icons, initials, hover) is the
+ * accent mixed with black (light) or white (dark) so it keeps 4.5:1 or more for any accent.
+ */
+body {
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --card-border: rgb(15 23 42 / 0.08);
+  --ink: #0f172a;
+  --muted: #64748b;
+  --link-bg: #ffffff;
+  --link-hover: #f8fafc;
+  --chip-bg: rgb(15 23 42 / 0.04);
+  --chip-hover: rgb(15 23 42 / 0.08);
+  --accent-ink: color-mix(in srgb, var(--accent) 45%, #000000);
+  --accent-tint: color-mix(in srgb, var(--accent) 8%, transparent);
+  --shadow-sm: 0 2px 8px -2px rgb(15 23 42 / 0.06);
+  --shadow-lg: 0 16px 36px -8px rgb(15 23 42 / 0.12);
+}
+
+:root {
+  color-scheme: light;
+}
+
+:root[data-mode="dark"] {
+  color-scheme: dark;
+}
+
+:root[data-mode="auto"] {
+  color-scheme: light dark;
+}
+
+/* The dark palette: keep in sync with the prefers-color-scheme block below. */
+:root[data-mode="dark"] body {
+  --bg: #0b0f19;
+  --card-bg: #111827;
+  --card-border: rgb(255 255 255 / 0.08);
+  --ink: #f9fafb;
+  --muted: #9ca3af;
+  --link-bg: #1f2937;
+  --link-hover: #374151;
+  --chip-bg: rgb(255 255 255 / 0.04);
+  --chip-hover: rgb(255 255 255 / 0.1);
+  --accent-ink: color-mix(in srgb, var(--accent) 40%, #ffffff);
+  --accent-tint: color-mix(in srgb, var(--accent) 22%, transparent);
+  --shadow-sm: 0 2px 8px -2px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 20px 40px -10px rgb(0 0 0 / 0.6);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-mode="auto"] body {
+    --bg: #0b0f19;
+    --card-bg: #111827;
+    --card-border: rgb(255 255 255 / 0.08);
+    --ink: #f9fafb;
+    --muted: #9ca3af;
+    --link-bg: #1f2937;
+    --link-hover: #374151;
+    --chip-bg: rgb(255 255 255 / 0.04);
+    --chip-hover: rgb(255 255 255 / 0.1);
+    --accent-ink: color-mix(in srgb, var(--accent) 40%, #ffffff);
+    --accent-tint: color-mix(in srgb, var(--accent) 22%, transparent);
+    --shadow-sm: 0 2px 8px -2px rgb(0 0 0 / 0.4);
+    --shadow-lg: 0 20px 40px -10px rgb(0 0 0 / 0.6);
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cover-card {
+  width: 100%;
+  max-width: 520px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 28px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+/* Banner: an accent gradient with a faint grid and a ring, purely decorative. */
+.cover-banner {
+  position: relative;
+  height: 160px;
+  background: linear-gradient(125deg, var(--accent), color-mix(in srgb, var(--accent) 60%, #ffffff));
+  background-color: var(--accent);
+  overflow: hidden;
+}
+
+.cover-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: 24px 24px;
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.08) 1px, transparent 1px);
+}
+
+.cover-banner::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 1px solid rgb(255 255 255 / 0.18);
+  box-shadow: 0 0 0 35px rgb(255 255 255 / 0.05);
+}
+
+.cover-body {
+  padding: 24px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cover-avatar {
+  position: relative;
+  display: block;
+  width: 86px;
+  height: 86px;
+  margin: -70px 0 12px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--card-bg);
+  background: var(--card-bg);
+  box-shadow: 0 8px 24px -4px rgb(0 0 0 / 0.25);
+}
+
+.cover-name {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+
+.cover-bio {
+  margin: 8px auto 0;
+  max-width: 380px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+/* Socials */
+.cover-socials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.cover-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--chip-bg);
+  color: var(--ink);
+  border: 1px solid var(--card-border);
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.cover-social-btn:hover {
+  transform: translateY(-2px);
+  color: var(--accent-ink);
+  background: var(--chip-hover);
+}
+
+.cover-social-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* Links heading: a label on a rule */
+.cover-divider {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 22px 0 12px;
+  position: relative;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.cover-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--card-border);
+}
+
+.cover-divider-text {
+  position: relative;
+  background: var(--card-bg);
+  padding: 0 12px;
+}
+
+/* A page without socials or a links heading still keeps a gap above the links. */
+.cover-name + .cover-links,
+.cover-bio + .cover-links,
+.cover-socials + .cover-links {
+  margin-top: 22px;
+}
+
+/* Links */
+.cover-links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cover-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  background: var(--link-bg);
+  border: 1px solid var(--card-border);
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.cover-link:hover {
+  transform: translateY(-2px);
+  background: var(--link-hover);
+  border-color: var(--accent-ink);
+  box-shadow: 0 8px 20px -4px rgb(0 0 0 / 0.1);
+}
+
+.cover-link:active {
+  transform: translateY(0);
+}
+
+.cover-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--accent-tint);
+  color: var(--accent-ink);
+  flex-shrink: 0;
+}
+
+.cover-icon-box svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* A link's own colour fills the box; on a dark colour (the build works it out) the glyph turns white. */
+.is-colored {
+  background: var(--link-color);
+  color: #0f172a;
+}
+
+.ink-light {
+  color: #ffffff;
+}
+
+.is-image {
+  overflow: hidden;
+}
+
+.is-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover-initial {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.cover-link-title {
+  flex: 1;
+  text-align: left;
+  margin: 0 12px;
+  font-size: 14.5px;
+  font-weight: 600;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cover-arrow {
+  width: 16px;
+  height: 16px;
+  color: var(--muted);
+  flex-shrink: 0;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.cover-link:hover .cover-arrow {
+  color: var(--accent-ink);
+  transform: translateX(3px);
+}
+
+/* Focus */
+a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-social-btn,
+  .cover-link,
+  .cover-arrow {
+    transition: none;
+  }
+
+  .cover-social-btn:hover,
+  .cover-link:hover,
+  .cover-link:active,
+  .cover-link:hover .cover-arrow {
+    transform: none;
+  }
+}

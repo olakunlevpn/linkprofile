@@ -8,7 +8,10 @@
   "engines": { "node": ">=22" },
   "files": ["bin", "src", "themes"],
   "license": "MIT",
-  "repository": "github:olakunlevpn/linkprofile",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olakunlevpn/linkprofile.git"
+  },
   "scripts": { "test": "node --test \"test/*.test.js\"" },
   "dependencies": {
     "hjson": "^3.2.2",

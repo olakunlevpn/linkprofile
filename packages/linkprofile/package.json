@@ -1,12 +1,12 @@
 {
   "name": "linkprofile",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Turn a profile.hjson file into a static link-in-bio page for GitHub Pages",
   "keywords": ["link-in-bio", "linktree", "static-site-generator", "github-pages", "hjson", "cli"],
   "type": "module",
   "bin": { "linkprofile": "bin/linkprofile.js" },
   "engines": { "node": ">=22" },
-  "files": ["bin", "src", "themes"],
+  "files": ["bin", "src", "themes", "README.md", "LICENSE"],
   "license": "MIT",
   "repository": {
     "type": "git",

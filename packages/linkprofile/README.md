@@ -1,36 +1,103 @@
 # linkprofile
 
-Turn a `profile.hjson` file into a static link-in-bio page you can host on GitHub Pages.
+[![npm version](https://img.shields.io/npm/v/linkprofile.svg?style=flat-square)](https://www.npmjs.com/package/linkprofile)
+[![npm downloads](https://img.shields.io/npm/dt/linkprofile.svg?style=flat-square)](https://www.npmjs.com/package/linkprofile)
+[![GitHub stars](https://img.shields.io/github/stars/olakunlevpn/linkprofile.svg?style=flat-square)](https://github.com/olakunlevpn/linkprofile)
+[![CI](https://img.shields.io/github/actions/workflow/status/olakunlevpn/linkprofile/ci.yml?branch=main&label=CI&style=flat-square)](https://github.com/olakunlevpn/linkprofile/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/github/license/olakunlevpn/linkprofile.svg?style=flat-square)](https://github.com/olakunlevpn/linkprofile/blob/main/LICENSE)
 
-```sh
-npx linkprofile init      # write a starter profile.hjson and images/avatar.png
-npx linkprofile build     # build the site into dist/
-npx linkprofile preview   # serve it locally and reload on save
-npx linkprofile themes    # list the available themes
+Turn a profile file into a personal link-in-bio page on GitHub Pages.
+
+## Introduction
+
+linkprofile is a static site generator built for link pages. You edit a single configuration file in Hjson, push your commit, and GitHub Pages publishes the site automatically. No tracking scripts and no monthly fee.
+
+Your live site runs entirely from self-hosted static HTML and CSS. You can keep it on GitHub Pages for free or attach your own domain name.
+
+## Quick start
+
+You can use the ready-made template without installing anything locally.
+
+Open the starter repository on GitHub and click **Use this template**:
+
+https://github.com/olakunlevpn/linkprofile-starter
+
+If you prefer working on your computer, you can initialize a project with the CLI:
+
+```bash
+npx linkprofile init
 ```
 
-Needs Node 22 or newer. For a ready-made GitHub Pages setup, use the template at https://github.com/olakunlevpn/linkprofile-starter.
+This writes a starter `profile.hjson` file and a placeholder avatar image in your current folder.
 
-Documentation: https://olakunlevpn.github.io/linkprofile/docs/
+## Everyday commands
 
-## Three Hjson rules
+You can preview your page locally with live reload:
 
-1. Put each field on its own line. An unquoted value runs to the end of the line, so `{ title: A, url: https://a.com }` on one line does not work.
-2. Put colours in quotes: `color: "#34d399"`. An unquoted `#` starts a comment.
-3. Put comments on their own line. A comment after an unquoted value becomes part of the value.
+```bash
+npx linkprofile preview
+```
+
+To compile your site into the `dist/` directory:
+
+```bash
+npx linkprofile build
+```
+
+To view all built-in themes from the command line:
+
+```bash
+npx linkprofile themes
+```
+
+## How it works
+
+Your whole profile lives inside `profile.hjson`. Here's a quick example:
+
+```hjson
+name: Ada Lovelace
+bio: Writer of the first program. Fond of engines.
+theme: classic
+
+links: [
+  {
+    title: My personal site
+    url: https://example.com
+    icon: globe
+  }
+  {
+    title: Source code
+    url: https://github.com/you
+    icon: github
+  }
+]
+
+socials: [
+  { type: github, url: https://github.com/you }
+  { type: email, url: mailto:you@example.com }
+]
+```
+
+When you push a change to GitHub, a GitHub Actions workflow runs the generator and deploys the finished static site.
 
 ## Themes
 
-Five themes are built in. Pick one with `theme:` in `profile.hjson`; options go in the long form, quoted because they share one line:
+Five themes come built in out of the box:
 
-```hjson
-theme: { name: "classic", options: { mode: "dark", accent: "#ff6b6b" } }
-```
+- `classic` (default): clean rounded links with an optional light and dark mode toggle.
+- `bento`: frosted tiles laid out in an asymmetrical grid.
+- `cover`: high-contrast banner with an overlapping portrait photo.
+- `crimson`: dark background with scarlet accents and direct host labels.
+- `editorial`: warm gradient canvas with card-style links.
 
-- `classic` (the default): a clean page with pill-shaped links. Options: `mode` is `auto` (default, follows the visitor's system setting), `light` or `dark`; `toggle` (`true` by default) shows a light/dark switch in `auto` mode, built with one small inline script, and the page works fully without it; `accent` colours the dot after your name.
-- `bento`: frosted tiles in a two-column grid, the first link full width. Options: `mode` is `dark` (default), `light` or `auto`; `accent` colours the dot after your name and the glow behind the page.
-- `cover`: a card under an accent-coloured banner, with your picture overlapping its edge. Options: `mode` is `auto` (default), `light` or `dark`; `accent` colours the banner and the link icons.
-- `crimson`: an obsidian page with a grid backdrop, a header card and dark link cards that show each link's address. Options: `mode` is `dark` (default), `light` or `auto`; `accent` (scarlet by default) colours the glow, the link icons and the links heading.
-- `editorial`: a big headline on an accent gradient, with white link cards that show each link's address. Options: `mode` is `dark` (default: the deep gradient), `light` (a pale tint) or `auto`; `accent` sets the gradient's colour.
+You can preview every theme on the official documentation site.
 
-In every theme, `auto` follows the visitor's light or dark system setting, and a link's `color` fills its icon.
+## Documentation
+
+Read the full guides, theme configuration options, and Hjson reference on the website:
+
+https://olakunlevpn.github.io/linkprofile/docs/
+
+## License
+
+This project is open-source software licensed under the [MIT license](https://github.com/olakunlevpn/linkprofile/blob/main/LICENSE).
